@@ -7,8 +7,9 @@ hadoop jar /usr/lib/hadoop/hadoop-streaming.jar \
     -D mapreduce.job.reduces=3 \
     -D mapred.text.key.partitioner.options=-k1,1 \
     -partitioner org.apache.hadoop.mapred.lib.KeyFieldBasedPartitioner \
-    -files task4-mapper.py,task4-reducer.py \
+    -file ./task4-mapper.py \
     -mapper ./task4-mapper.py \
+    -file ./task4-reducer.py \
     -reducer ./task4-reducer.py \
     -input /Input/Trips.txt \
     -output /Output/task4
