@@ -10,7 +10,7 @@ total_sum = 0.0
 mean = 0.0
 squared_sum = 0.0
 
-for lin in sys.stdin:
+for line in sys.stdin:
     line = line.strip()
     
     if not line:

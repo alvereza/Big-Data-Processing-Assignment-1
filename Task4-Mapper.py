@@ -30,4 +30,4 @@ for taxi_id in taxi_stats:
     count = taxi_stats[taxi_id][0]
     distance_sum = taxi_stats[taxi_id][1]
     
-    print('%s\t%s\t%s\t' % (taxi_id, 0, count, distance_sum))
+    print('%s\t%s\t%s\t%s' % (taxi_id, 0, count, distance_sum))
