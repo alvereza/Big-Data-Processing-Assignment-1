@@ -7,7 +7,7 @@ current_taxi = None
 
 total_count = 0
 total_sum = 0.0
-mean = 0.0
+mean = None
 squared_sum = 0.0
 
 for line in sys.stdin:
@@ -29,7 +29,7 @@ for line in sys.stdin:
         
         total_count = 0
         total_sum = 0.0
-        mean = 0.0
+        mean = None
         squared_sum = 0.0
         
     current_taxi = taxi_id
@@ -43,7 +43,7 @@ for line in sys.stdin:
         
     # individual distance
     elif record_type == "1":
-        if mean == 0.0:
+        if mean is None:
             mean = total_sum / total_count
             
         distance = float(fields[2])
