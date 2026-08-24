@@ -1,3 +1,4 @@
+#!/bin/bash
 set -e
 
 INPUT="/Input/Trips.txt"
