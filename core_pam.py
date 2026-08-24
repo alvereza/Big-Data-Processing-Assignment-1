@@ -45,15 +45,19 @@ def update_medoid(cluster_point):
     # We assume the first point in the cluster is the best medoid
     best_medoid = cluster_point[0]
     best_cost = average_dissimilarity(cluster_point[0], cluster_point)
+    checked = {cluster_point[0]}
 
     for i in range(1, len(cluster_point)):
         candidate = cluster_point[i]
+        if candidate in checked:
+            continue
+        checked.add(candidate)
         cost = average_dissimilarity(candidate, cluster_point)
         if cost < best_cost:
             best_medoid = candidate
             best_cost = cost
 
-        return best_medoid, best_cost, len(cluster_point)
+    return best_medoid, best_cost, len(cluster_point)
 
 
 
