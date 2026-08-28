@@ -33,9 +33,9 @@ for ((i=1; i<=V; i++)); do
         -D stream.num.map.output.key.fields=3 \
         -D mapred.text.key.partitioner.options=-k1,1 \
         -D mapreduce.partition.keypartitioner.options=-k1,1 \
+        -files task2-mapper.py,task2-combiner.py,task2-reducer.py,"$MEDOIDS" \
         -cmdenv STAGE=iterate \
         -partitioner org.apache.hadoop.mapred.lib.KeyFieldBasedPartitioner \
-        -files task2-mapper.py,task2-combiner.py,task2-reducer.py,core_pam.py,"$MEDOIDS" \
         -mapper "python3 task2-mapper.py" \
         -combiner "python3 task2-combiner.py" \
         -reducer "python3 task2-reducer.py" \
@@ -66,9 +66,9 @@ hadoop jar "$STREAMING_JAR" \
     -D stream.num.map.output.key.fields=2 \
     -D mapred.text.key.partitioner.options=-k1,1 \
     -D mapreduce.partition.keypartitioner.options=-k1,1 \
+    -files task2-mapper.py,task2-reducer.py,cluster_count.txt \
     -cmdenv STAGE=final \
     -partitioner org.apache.hadoop.mapred.lib.KeyFieldBasedPartitioner \
-    -files task2-mapper.py,task2-reducer.py,core_pam.py,cluster_count.txt \
     -mapper "python3 task2-mapper.py" \
     -reducer "python3 task2-reducer.py" \
     -input "$LAST_OUTPUT" \
